@@ -1,0 +1,70 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+}
+
+version = '1.0.0'
+group = 'com.ftbteamsaddon'
+
+base {
+    archivesName = 'ftbteamsaddon'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+    
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            mods {
+                ftbteamsaddon {
+                    source sourceSets.main
+                }
+            }
+        }
+        server {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            mods {
+                ftbteamsaddon {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+repositories {
+    maven {
+        name = "FTB Maven"
+        url = "https://maven.saps.dev/minecraft"
+    }
+    maven {
+        name = "Architectury"
+        url = "https://maven.architectury.dev/"
+    }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
+    
+    // FTB Teams dependency
+    implementation fg.deobf("dev.ftb.mods:ftb-teams-forge:2001.3.0")
+    
+    // FTB Library (required by FTB Teams)
+    implementation fg.deobf("dev.ftb.mods:ftb-library-forge:2001.2.4")
+    
+    // Architectury API (required by FTB mods)
+    implementation fg.deobf("dev.architectury:architectury-forge:9.2.14")
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

@@ -43,26 +43,33 @@ minecraft {
 
 repositories {
     maven {
-        name = "FTB Maven"
-        url = "https://maven.saps.dev/minecraft"
+        name = "CurseForge"
+        url = "https://www.cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
     }
     maven {
-        name = "Architectury"
-        url = "https://maven.architectury.dev/"
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+        content {
+            includeGroup "maven.modrinth"
+        }
     }
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
     
-    // FTB Teams dependency
-    implementation fg.deobf("dev.ftb.mods:ftb-teams-forge:2001.3.0")
+    // Using CurseForge Maven for dependencies
+    // FTB Teams - https://www.curseforge.com/minecraft/mc-mods/ftb-teams-forge
+    implementation fg.deobf("curse.maven:ftb-teams-forge-404468:5452150")
     
-    // FTB Library (required by FTB Teams)
-    implementation fg.deobf("dev.ftb.mods:ftb-library-forge:2001.2.4")
+    // FTB Library - https://www.curseforge.com/minecraft/mc-mods/ftb-library-forge
+    implementation fg.deobf("curse.maven:ftb-library-forge-404465:5452147")
     
-    // Architectury API (required by FTB mods)
-    implementation fg.deobf("dev.architectury:architectury-forge:9.2.14")
+    // Architectury API - https://www.curseforge.com/minecraft/mc-mods/architectury-api
+    implementation fg.deobf("curse.maven:architectury-api-419699:5372441")
 }
 
 tasks.withType(JavaCompile).configureEach {

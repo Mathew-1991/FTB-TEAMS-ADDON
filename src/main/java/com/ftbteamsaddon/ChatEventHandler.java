@@ -28,7 +28,8 @@ public class ChatEventHandler {
                 .append(originalMessage);
             
             // Update the message
-            event.setMessage(newMessage);
-        }
+            // Cancel the event and send custom message
+            event.setCanceled(true);
+            player.getServer().getPlayerList().broadcastSystemMessage(newMessage, false);        }
     }
 }

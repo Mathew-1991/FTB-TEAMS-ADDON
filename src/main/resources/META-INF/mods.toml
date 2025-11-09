@@ -1,0 +1,37 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="ftbteamsaddon"
+version="1.0.0"
+displayName="FTB Teams Addon"
+aupdateJSONURL=""
+displayURL=""
+logoFile=""
+credits=""
+authors="Mathew-1991"
+description='''
+Adds team tags to player names in chat and tablist for FTB Teams.
+'''
+
+[[dependencies.ftbteamsaddon]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.ftbteamsaddon]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.ftbteamsaddon]]
+modId="ftbteams"
+mandatory=true
+versionRange="[2001.3.0,)"
+ordering="AFTER"
+side="BOTH"

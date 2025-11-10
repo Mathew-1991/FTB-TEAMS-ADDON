@@ -15,6 +15,7 @@ public class FTBTeamsAddon {
         
         // Register event handlers
         MinecraftForge.EVENT_BUS.register(new ChatEventHandler());
+                MinecraftForge.EVENT_BUS.register(new TablistNameHandler());
        
         LOGGER.info("FTB Teams Addon initialized successfully!");
     }

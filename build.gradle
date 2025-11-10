@@ -63,14 +63,11 @@ dependencies {
     
     // Using CurseForge Maven for dependencies
     // FTB Teams - https://www.curseforge.com/minecraft/mc-mods/ftb-teams-forge
-    compileOnly "dev.ftb.mods:ftb-teams-forge:2001.3.0"
-    
+    compileOnly "dev.ftb.mods:ftb-teams-forge:2001.3.1"    
     // FTB Library - https://www.curseforge.com/minecraft/mc-mods/ftb-library-forge
-    compileOnly "dev.ftb.mods:ftb-library-forge:2001.2.4"
-    
+    compileOnly "dev.ftb.mods:ftb-library-forge:2001.3.1"    
     // Architectury API - https://www.curseforge.com/minecraft/mc-mods/architectury-api
-    compileOnly "dev.architectury:architectury-forge:9.2.14"
-}
+    compileOnly "dev.architectury:architectury-forge:9.1.12"}
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
